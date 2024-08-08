@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h1>My Movie Lists</h1>
+
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-md-4 mb-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= list.name %></h5>
+          <%= link_to 'view my whole list', list_path(list), class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
