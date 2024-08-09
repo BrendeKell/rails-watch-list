@@ -10,7 +10,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-black font-sans font-light">
+   <nav class="DesktopMenu_container__e3IKz d-flex justify-content-end">
+    <ul class="DesktopMenu_list__zu5su">
+      <li><%= link_to "My lists", lists_path, class: "btn btn-outline-dark" %></li>
+      <li><%= link_to "New list", new_list_path, class: "btn btn-outline-dark" %></li>
+    </ul>
+  </nav>
     <%= yield %>
   </body>
 </html>

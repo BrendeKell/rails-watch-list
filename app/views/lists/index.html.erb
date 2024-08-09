@@ -1,16 +1,26 @@
-<div class="container mt-5">
-  <h1>My Movie Lists</h1>
-  <%= link_to "Add a list", new_list_path, class: "btn btn-success" %>
+<div class="main-container">
+  <header class="header">
+    <div>
+      <h1>Save any kind of movies</h1>
+      <div class="subtext">Classic</div>
+    </div>
+  </header>
 
-  <div class="row">
-    <% @lists.each do |list| %>
-      <div class="col-md-4 mb-4">
-        <div class="card-body">
-          <h5 class="card-title"><%= list.name %></h5>
-          <%= link_to 'view my whole list', list_path(list), class: 'btn btn-secondary' %>
-          <%= link_to "Delete", list_path(list), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <div class="my-lists">
+    <div class="row">
+      <% @lists.each do |list| %>
+        <div class="col-md-4 mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= list.name %></h5>
+            <%= link_to 'view my whole list', list_path(list), class: 'btn btn-secondary' %>
+            <%= link_to "Delete", list_path(list), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
+  <button class="create-movie-list-button">
+    <%= link_to "create a movie", new_list_path, class: "btn btn-success"  %>
+  </button>
 </div>

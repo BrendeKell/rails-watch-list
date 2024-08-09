@@ -1,12 +1,47 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// Variables
+$navbar-bg: #fff;
+$navbar-text-color: #000;
+$navbar-border-color: #ddd;
+$btn-color: #007bff;
+$btn-border-color: $btn-color;
+$btn-hover-bg: darken($btn-color, 10%);
+$btn-hover-color: #fff;
+
+// Navbar Container
+.DesktopMenu_container__e3IKz {
+  background-color: $navbar-bg;
+  border-bottom: 1px solid $navbar-border-color;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// Navbar List
+.DesktopMenu_list__zu5su {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  li {
+    margin: 0 15px;
+
+    .btn {
+      color: $btn-color;
+      border-color: $btn-border-color;
+      padding: 5px 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: $btn-hover-bg;
+        color: $btn-hover-color;
+        border-color: $btn-hover-bg;
+      }
+    }
+  }
 }
