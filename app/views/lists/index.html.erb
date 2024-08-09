@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <h1>My Movie Lists</h1>
+  <%= link_to "Add a list", new_list_path, class: "btn btn-success" %>
 
   <div class="row">
     <% @lists.each do |list| %>
@@ -7,8 +8,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= list.name %></h5>
           <%= link_to 'view my whole list', list_path(list), class: 'btn btn-secondary' %>
+          <%= link_to "Delete", list_path(list), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

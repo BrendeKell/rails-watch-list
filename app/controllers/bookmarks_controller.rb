@@ -12,20 +12,16 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(params_bookmark)
     @list = List.find(params[:list_id])
     @bookmark.list = @list
-    if @bookmark.save
-      redirect_to list_path(@list), notice: "bookmark successfully generated!"
-    else
-      render :new, notice: "error: list was not successfully generated..."
-    end
+    @bookmark.save
+    redirect_to list_path(@list), notice: "bookmark successfully generated!"
   end
 
   def destroy
-    @bookmark = @list.Bookmark.find(params[:id])
-    if @bookmark.destroy
-      redirect_to bookmarks_path, notice: "bookmark successfully deleted!"
-    else
-      render :destroy, notice: "error: bookmark was not deleted..."
-    end
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    @list = List.find(params[:list_id])
+
+    redirect_to list_path(@list), notice: "bookmark successfully deleted!"
   end
 
   private
